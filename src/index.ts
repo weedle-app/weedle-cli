@@ -1,1 +1,1 @@
-console.log('Typescript Starter! 🇳🇬')
+console.log('Typescript Starter! 🇳🇬');
