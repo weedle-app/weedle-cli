@@ -1,6 +1,6 @@
 {
   "name": "weedle-cli",
-  "version": "0.1.0",
+  "version": "0.1.3",
   "description": "(Beta) Official cli for the weedle platform. It also provides tools for easy development in web3.",
   "author": "Doyin Olarewaju @gate3",
   "bin": {
@@ -71,7 +71,7 @@
     "lint": "eslint . --ext .ts --config .eslintrc",
     "postpack": "shx rm -f oclif.manifest.json",
     "posttest": "yarn lint",
-    "prepack": "yarn build && oclif manifest && oclif readme",
+    "prepack": "yarn build && oclif manifest",
     "test": "mocha --forbid-only \"test/**/*.test.ts\"",
     "version": "oclif readme && git add README.md"
   },
@@ -80,7 +80,10 @@
   },
   "bugs": "https://github.com/weedle-app/weedle-cli/issues",
   "keywords": [
-    "oclif"
+    "weedle",
+    "web3",
+    "blockchain",
+    "web3 mobile"
   ],
   "types": "dist/index.d.ts"
 }
