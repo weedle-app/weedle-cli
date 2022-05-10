@@ -1,36 +1,30 @@
-oclif-hello-world
-=================
-
-oclif example Hello World CLI
-
-[![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
-[![Version](https://img.shields.io/npm/v/oclif-hello-world.svg)](https://npmjs.org/package/oclif-hello-world)
-[![CircleCI](https://circleci.com/gh/oclif/hello-world/tree/main.svg?style=shield)](https://circleci.com/gh/oclif/hello-world/tree/main)
-[![Downloads/week](https://img.shields.io/npm/dw/oclif-hello-world.svg)](https://npmjs.org/package/oclif-hello-world)
-[![License](https://img.shields.io/npm/l/oclif-hello-world.svg)](https://github.com/oclif/hello-world/blob/main/package.json)
+# Weelde CLI (Beta)
 
 <!-- toc -->
+* [Weelde CLI (Beta)](#weelde-cli-beta)
 * [Usage](#usage)
 * [Commands](#commands)
 <!-- tocstop -->
+
 # Usage
+
 <!-- usage -->
 ```sh-session
-$ npm install -g weedle
+$ npm install -g weedle-cli
 $ weedle COMMAND
 running command...
 $ weedle (--version)
-weedle/0.0.0 darwin-x64 node-v16.9.1
+weedle-cli/0.1.0 darwin-x64 node-v16.9.1
 $ weedle --help [COMMAND]
 USAGE
   $ weedle COMMAND
 ...
 ```
 <!-- usagestop -->
+
 # Commands
+
 <!-- commands -->
-* [`weedle hello PERSON`](#weedle-hello-person)
-* [`weedle hello world`](#weedle-hello-world)
 * [`weedle help [COMMAND]`](#weedle-help-command)
 * [`weedle plugins`](#weedle-plugins)
 * [`weedle plugins:install PLUGIN...`](#weedle-pluginsinstall-plugin)
@@ -40,47 +34,7 @@ USAGE
 * [`weedle plugins:uninstall PLUGIN...`](#weedle-pluginsuninstall-plugin)
 * [`weedle plugins:uninstall PLUGIN...`](#weedle-pluginsuninstall-plugin-1)
 * [`weedle plugins:uninstall PLUGIN...`](#weedle-pluginsuninstall-plugin-2)
-* [`weedle plugins update`](#weedle-plugins-update)
-
-## `weedle hello PERSON`
-
-Say hello
-
-```
-USAGE
-  $ weedle hello [PERSON] -f <value>
-
-ARGUMENTS
-  PERSON  Person to say hello to
-
-FLAGS
-  -f, --from=<value>  (required) Whom is saying hello
-
-DESCRIPTION
-  Say hello
-
-EXAMPLES
-  $ oex hello friend --from oclif
-  hello friend from oclif! (./src/commands/hello/index.ts)
-```
-
-_See code: [dist/commands/hello/index.ts](https://github.com/weedle-app/weedle-cli/blob/v0.0.0/dist/commands/hello/index.ts)_
-
-## `weedle hello world`
-
-Say hello world
-
-```
-USAGE
-  $ weedle hello world
-
-DESCRIPTION
-  Say hello world
-
-EXAMPLES
-  $ oex hello world
-  hello world! (./src/commands/hello/world.ts)
-```
+* [`weedle plugins:update`](#weedle-pluginsupdate)
 
 ## `weedle help [COMMAND]`
 
@@ -150,7 +104,7 @@ DESCRIPTION
   the CLI without the need to patch and update the whole CLI.
 
 ALIASES
-  $ weedle plugins add
+  $ weedle plugins:add
 
 EXAMPLES
   $ weedle plugins:install myplugin 
@@ -182,6 +136,8 @@ EXAMPLES
   $ weedle plugins:inspect myplugin
 ```
 
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v2.0.11/src/commands/plugins/inspect.ts)_
+
 ## `weedle plugins:install PLUGIN...`
 
 Installs a plugin into the CLI.
@@ -210,7 +166,7 @@ DESCRIPTION
   the CLI without the need to patch and update the whole CLI.
 
 ALIASES
-  $ weedle plugins add
+  $ weedle plugins:add
 
 EXAMPLES
   $ weedle plugins:install myplugin 
@@ -219,6 +175,8 @@ EXAMPLES
 
   $ weedle plugins:install someuser/someplugin
 ```
+
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v2.0.11/src/commands/plugins/install.ts)_
 
 ## `weedle plugins:link PLUGIN`
 
@@ -247,28 +205,7 @@ EXAMPLES
   $ weedle plugins:link myplugin
 ```
 
-## `weedle plugins:uninstall PLUGIN...`
-
-Removes a plugin from the CLI.
-
-```
-USAGE
-  $ weedle plugins:uninstall PLUGIN...
-
-ARGUMENTS
-  PLUGIN  plugin to uninstall
-
-FLAGS
-  -h, --help     Show CLI help.
-  -v, --verbose
-
-DESCRIPTION
-  Removes a plugin from the CLI.
-
-ALIASES
-  $ weedle plugins unlink
-  $ weedle plugins remove
-```
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v2.0.11/src/commands/plugins/link.ts)_
 
 ## `weedle plugins:uninstall PLUGIN...`
 
@@ -289,8 +226,8 @@ DESCRIPTION
   Removes a plugin from the CLI.
 
 ALIASES
-  $ weedle plugins unlink
-  $ weedle plugins remove
+  $ weedle plugins:unlink
+  $ weedle plugins:remove
 ```
 
 ## `weedle plugins:uninstall PLUGIN...`
@@ -312,17 +249,42 @@ DESCRIPTION
   Removes a plugin from the CLI.
 
 ALIASES
-  $ weedle plugins unlink
-  $ weedle plugins remove
+  $ weedle plugins:unlink
+  $ weedle plugins:remove
 ```
 
-## `weedle plugins update`
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v2.0.11/src/commands/plugins/uninstall.ts)_
+
+## `weedle plugins:uninstall PLUGIN...`
+
+Removes a plugin from the CLI.
+
+```
+USAGE
+  $ weedle plugins:uninstall PLUGIN...
+
+ARGUMENTS
+  PLUGIN  plugin to uninstall
+
+FLAGS
+  -h, --help     Show CLI help.
+  -v, --verbose
+
+DESCRIPTION
+  Removes a plugin from the CLI.
+
+ALIASES
+  $ weedle plugins:unlink
+  $ weedle plugins:remove
+```
+
+## `weedle plugins:update`
 
 Update installed plugins.
 
 ```
 USAGE
-  $ weedle plugins update [-h] [-v]
+  $ weedle plugins:update [-h] [-v]
 
 FLAGS
   -h, --help     Show CLI help.
@@ -331,4 +293,6 @@ FLAGS
 DESCRIPTION
   Update installed plugins.
 ```
+
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v2.0.11/src/commands/plugins/update.ts)_
 <!-- commandsstop -->

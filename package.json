@@ -1,7 +1,7 @@
 {
-  "name": "weedle",
-  "version": "0.0.0",
-  "description": "Cli for making easing mobile first web3 development and using the weedle platform",
+  "name": "weedle-cli",
+  "version": "0.1.0",
+  "description": "(Beta) Official cli for the weedle platform. It also provides tools for easy development in web3.",
   "author": "Doyin Olarewaju @gate3",
   "bin": {
     "weedle": "./bin/run"
@@ -20,20 +20,29 @@
     "@oclif/core": "^1",
     "@oclif/plugin-help": "^5",
     "@oclif/plugin-plugins": "^2.0.1",
-    "ganache": "^7.1.0"
+    "adbkit": "^2.11.1",
+    "ethereumjs-util": "^7.1.4",
+    "ethers": "^5.6.5",
+    "ganache": "^7.1.0",
+    "global": "^4.4.0",
+    "inquirer": "^8.2.4",
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
     "@oclif/test": "^2",
     "@types/chai": "^4",
+    "@types/command-exists": "^1.2.0",
+    "@types/inquirer": "^8.2.1",
     "@types/mocha": "^9.0.0",
     "@types/node": "^16.9.4",
     "chai": "^4",
     "eslint": "^7.32.0",
     "eslint-config-oclif": "^4",
     "eslint-config-oclif-typescript": "^1.0.2",
+    "eslint-config-prettier": "^8.5.0",
     "globby": "^11",
     "mocha": "^9",
-    "oclif": "^3",
+    "oclif": "^3.0.1",
     "shx": "^0.3.3",
     "ts-node": "^10.2.1",
     "tslib": "^2.3.1",
@@ -47,10 +56,13 @@
       "@oclif/plugin-help",
       "@oclif/plugin-plugins"
     ],
-    "topicSeparator": " ",
+    "topicSeparator": ":",
     "topics": {
       "hello": {
         "description": "Say hello to the world and others"
+      },
+      "dev": {
+        "description": "Helps setup a development environment for different platforms"
       }
     }
   },
