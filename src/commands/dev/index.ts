@@ -1,6 +1,6 @@
 import { Command, Flags } from '@oclif/core';
-import commandExists from 'command-exists';
-import { spawn } from 'node:child_process';
+import * as adbKit from 'adbkit';
+import { selectAConnectedDevice } from '../../common/devices-helper';
 
 import { parseEvmNodeConfig } from '../../common/parsers';
 import { allowedPlatforms } from '../../common/validators';
@@ -61,29 +61,25 @@ export default class Dev extends Command {
 
     if (flags['forward-port']) {
       try {
-        await commandExists('adb');
-        const adb = spawn(`adb reverse tcp:${port} tcp:${port}`);
-        adb.stdout.on('data', (data) => {
-          this.log(data);
-        });
+        const client = adbKit.createClient();
+        const device = await selectAConnectedDevice(client);
 
-        adb.stderr.on('data', (data) => {
-          this.log(data);
-        });
+        const proxyReversed = await client.reverse(
+          device,
+          `tcp:${port}`,
+          `tcp:${port}`
+        );
+        if (!proxyReversed) {
+          throw new Error('An error occurred reversing proxy');
+        }
 
-        adb.on('error', (error) => {
-          this.log(error.message);
-        });
+        this.log('Proxy reversed', port);
 
-        adb.on('close', (code) => {
-          this.log(`child process exited with code ${code}`);
-        });
         // eslint-disable-next-line unicorn/catch-error-name
       } catch (e: any) {
-        this.error('Could not forward port. adb command not found.', e);
+        this.error(e.message);
       }
     }
-    // We need to forward port before starting server if port forwarding is required.
 
     EvmNode.run(this, nodeOptions, port);
   }

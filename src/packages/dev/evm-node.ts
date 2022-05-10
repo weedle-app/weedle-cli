@@ -6,7 +6,6 @@ type EvmNodeArgs = ServerOptions<'ethereum'> | Record<string, unknown>;
 
 const EvmNode = {
   run(context: Command, options: EvmNodeArgs = {}, port = 8545): any {
-    console.log({ options, port });
 
     const server = ganache.server(options);
 
