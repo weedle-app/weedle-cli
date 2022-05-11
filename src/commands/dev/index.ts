@@ -46,14 +46,11 @@ export default class Dev extends Command {
     const { args, flags } = await this.parse(Dev);
     allowedPlatforms(args.platform);
 
-    this.log('Args', args);
-
     let nodeOptions: any = {};
 
     if (flags['node-options']) {
       const nodeArgs = flags['node-options'];
       nodeOptions = parseEvmNodeConfig(nodeArgs);
-      this.log('nodeArgs', nodeOptions);
     }
 
     const port =
@@ -73,7 +70,7 @@ export default class Dev extends Command {
           throw new Error('An error occurred reversing proxy');
         }
 
-        this.log('Proxy reversed', port);
+        this.log('Proxy reversed successful - ', port);
 
         // eslint-disable-next-line unicorn/catch-error-name
       } catch (e: any) {

@@ -1,6 +1,6 @@
 {
   "name": "weedle-cli",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "(Beta) Official cli for the weedle platform. It also provides tools for easy development in web3.",
   "author": "Doyin Olarewaju @gate3",
   "bin": {

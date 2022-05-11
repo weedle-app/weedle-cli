@@ -50,7 +50,14 @@ DESCRIPTION
   Helps setup a development environment for different platforms
 
 EXAMPLES
+  `Starts a blockchain node`
   $ weedle dev mobile
+
+  `Starts a blockchain node on a specific port`
+  $ weedle dev mobile --port 7000
+
+  `Start a blockchain node and forward its port for mobile connection`
+  $ weedle dev mobile -f
 
 ```
 
