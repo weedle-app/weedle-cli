@@ -1,11 +1,5 @@
 # Weelde CLI (Beta)
 
-<!-- toc -->
-
-- [Usage](#usage)
-- [Commands](#commands)
-<!-- tocstop -->
-
 # Usage
 
 <!-- usage -->
