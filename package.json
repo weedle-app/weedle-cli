@@ -1,24 +1,33 @@
 {
   "name": "weedle-cli",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "",
   "main": "index.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/weedle-app/weedle-cli"
+  },
   "scripts": {
     "dev": "./node_modules/typescript/bin/tsc && nodemon ./dist/index.js",
-    "build": "rimraf ./dist && ./node_modules/typescript/bin/tsc",
-    "start": "ls -a ./dist && node ./dist/index.js",
+    "start": "ts-node -r tsconfig-paths/register src/index.ts",
+    "run": "ncc run src/app.ts -e is-plain-object -e marked -e yargs-parser",
+    "build": "rimraf ./dist && ncc build src/index.ts -o dist --minify",
     "test": "jest --config ./jest.config.json",
     "run-f": "npx ts-node",
     "test:watch": "npm run test -- --watch",
     "lint": "eslint . --ext .ts",
-    "watch": "ncc build src/index.ts -o dist --watch"
+    "watch": "ncc build src/index.ts -o dist --watch",
+    "start:bin": "bin/weedle.js"
   },
   "keywords": [],
   "author": "Doyin Olarewaju @fullstackgod",
   "license": "ISC",
+  "files": [
+    "bin",
+    "dist"
+  ],
   "dependencies": {
     "commander": "^9.3.0",
-    "tsc": "^1.20150623.0",
     "typescript": "^4.0.3"
   },
   "devDependencies": {
